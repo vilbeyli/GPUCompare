@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GPUCompare
 {
-	public struct ArchitectureInfo
+	public class ArchitectureInfo
 	{
 		public string GenerationName;
 		public int Litography;			// nm
@@ -14,7 +14,7 @@ namespace GPUCompare
 		public int DieSize;				// mm^2
 		public string BusInterface;
 	}
-	public struct CoreInfo
+	public class CoreInfo
 	{
 		public struct CoreConfig
 		{
@@ -34,7 +34,7 @@ namespace GPUCompare
 		public int TurboClock;
 	}
 	
-	public struct MemoryInfo
+	public class MemoryInfo
 	{
 		public string BusType;
 		public int BusWidth;	// -bits
@@ -43,7 +43,7 @@ namespace GPUCompare
 		public float Bandwidth;	// GB/s
 	}
 
-	public struct Performance
+	public class Performance
 	{
 		public struct FillrateInfo
 		{
@@ -64,7 +64,7 @@ namespace GPUCompare
 		public int TDP;
 	}
 
-	public struct ManufactoringInfo
+	public class ManufactoringInfo
 	{
 		public string Brand;
 		public string ModelName;
@@ -72,7 +72,7 @@ namespace GPUCompare
 		public int ReleasePrice;
 	}
 
-	class GPUEntry
+	public class GPUEntry
 	{
 		public ManufactoringInfo Manufacturer;
 		public ArchitectureInfo Architecture;

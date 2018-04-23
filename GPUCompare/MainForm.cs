@@ -12,16 +12,39 @@ namespace GPUCompare
 {
     public partial class MainForm : Form
     {
-        public MainForm()
-        {
-            InitializeComponent();
-        }
+		Pages.GPUEntryView GPUEntryViewTestAMD = new Pages.GPUEntryView(GPUEntryBuilder.GenerateTestEntry(GPUBrand.AMD));
+		Pages.GPUEntryView GPUEntryViewTestNVD = new Pages.GPUEntryView(GPUEntryBuilder.GenerateTestEntry(GPUBrand.NVIDIA));
+		Pages.GPUEntryView GPUEntryViewTestITL = new Pages.GPUEntryView(GPUEntryBuilder.GenerateTestEntry(GPUBrand.INTEL));
+
+		static readonly Size OFFSET = new Size(0, 10);
+		static int CurrentHeight = 10;
+
+		void AddEntryView(Pages.GPUEntryView entryView)
+		{
+			entryView.Location += new Size(0, CurrentHeight) + OFFSET;
+			Controls.Add(entryView);
+			CurrentHeight = entryView.Location.Y + entryView.Size.Height;
+		}
+
+		public MainForm()
+		{
+			InitializeComponent();
+
+			AddEntryView(GPUEntryViewTestAMD);
+			AddEntryView(GPUEntryViewTestNVD);
+		}
+
+		async void AddDelayedEntry()
+		{
+			await Task.Delay(3000);
+			AddEntryView(GPUEntryViewTestITL);
+			return;
+		}
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-			GPUEntry TestEntry = GPUEntryBuilder.GenerateTestEntry();
-
-
+			// TODO: start web query, get a result, parse and add control
+			AddDelayedEntry();
 		}
 	}
 }

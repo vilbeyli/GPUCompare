@@ -45,18 +45,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GPUEntry.cs" />
-    <Compile Include="GPUEntryBuilder.cs" />
+    <Compile Include="Data\GPUEntry.cs" />
+    <Compile Include="Data\GPUEntryBuilder.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\GPUEntryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\GPUEntryView.Designer.cs">
+      <DependentUpon>GPUEntryView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\GPUEntryView.resx">
+      <DependentUpon>GPUEntryView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
