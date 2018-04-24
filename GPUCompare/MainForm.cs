@@ -1,10 +1,12 @@
-﻿using System;
+﻿using GPUCompare.Pages;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,39 +14,47 @@ namespace GPUCompare
 {
     public partial class MainForm : Form
     {
-		Pages.GPUEntryView GPUEntryViewTestAMD = new Pages.GPUEntryView(GPUEntryBuilder.GenerateTestEntry(GPUBrand.AMD));
-		Pages.GPUEntryView GPUEntryViewTestNVD = new Pages.GPUEntryView(GPUEntryBuilder.GenerateTestEntry(GPUBrand.NVIDIA));
-		Pages.GPUEntryView GPUEntryViewTestITL = new Pages.GPUEntryView(GPUEntryBuilder.GenerateTestEntry(GPUBrand.INTEL));
-
-		static readonly Size OFFSET = new Size(0, 10);
-		static int CurrentHeight = 10;
-
-		void AddEntryView(Pages.GPUEntryView entryView)
+		public enum Pages
 		{
-			entryView.Location += new Size(0, CurrentHeight) + OFFSET;
-			Controls.Add(entryView);
-			CurrentHeight = entryView.Location.Y + entryView.Size.Height;
+			LIST,
+			COMPARE
 		}
+
+		Pages SelectedPage;
+
+		ListPageUC PageList = new ListPageUC();
+		CompareUC PageCompare = new CompareUC();
+
+		UserControl SelectedUC = null;
 
 		public MainForm()
 		{
 			InitializeComponent();
 
-			AddEntryView(GPUEntryViewTestAMD);
-			AddEntryView(GPUEntryViewTestNVD);
+			SelectedPage = Pages.LIST;
+			SelectedUC = PageList;
 		}
 
-		async void AddDelayedEntry()
+		private void ShowPage(Pages page)
 		{
-			await Task.Delay(3000);
-			AddEntryView(GPUEntryViewTestITL);
-			return;
+			HeaderAndContentPanel.SuspendLayout();
+			HeaderAndContentPanel.Controls.Remove(SelectedUC);
+			switch (page)
+			{
+				case Pages.LIST:	SelectedUC = PageList; break;
+				case Pages.COMPARE:	SelectedUC = PageCompare; break;
+			}
+			HeaderAndContentPanel.Controls.Add(SelectedUC);
+			HeaderAndContentPanel.ResumeLayout();
 		}
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-			// TODO: start web query, get a result, parse and add control
-			AddDelayedEntry();
+
+			ShowPage(SelectedPage);
 		}
+
+		private void ListButton_Click(object sender, EventArgs e){ ShowPage(Pages.LIST); }
+		private void CompareButton_Click(object sender, EventArgs e){ ShowPage(Pages.COMPARE); }
 	}
 }

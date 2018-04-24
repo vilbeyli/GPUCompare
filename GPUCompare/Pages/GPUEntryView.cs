@@ -12,20 +12,20 @@ namespace GPUCompare.Pages
 {
 	public partial class GPUEntryView : UserControl
 	{
-		private GPUEntry entry = null;
+		public GPUEntry Entry { get; private set; } = null;
 		public GPUEntryView(GPUEntry entry)
 		{
 			InitializeComponent();
-			this.entry = entry;
+			this.Entry = entry;
 		}
 
 		private void ListEntryForm_Load(object sender, EventArgs e)
 		{
 			this.SuspendLayout();
-			LabelBrand.Text = entry.Manufacturer.Brand;
-			LabelModel.Text = entry.Manufacturer.ModelName;
-			LabelLaunchDate.Text = "Launch: " + entry.Manufacturer.LaunchDate.ToShortDateString();
-			LabelReleasePrice.Text = "$" + entry.Manufacturer.ReleasePrice.ToString();
+			LabelBrand.Text = Entry.Manufacturer.Brand;
+			LabelModel.Text = Entry.Manufacturer.ModelName;
+			LabelLaunchDate.Text = "Launch: " + Entry.Manufacturer.LaunchDate.ToShortDateString();
+			LabelReleasePrice.Text = "$" + Entry.Manufacturer.ReleasePrice.ToString();
 			this.ResumeLayout();
 		}
 	}

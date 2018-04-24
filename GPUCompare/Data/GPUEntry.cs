@@ -77,7 +77,7 @@ namespace GPUCompare
 		public ManufactoringInfo Manufacturer;
 		public ArchitectureInfo Architecture;
 		public CoreInfo Core;
-		public Performance Perf;
 		public MemoryInfo Memory;
+		public Performance Perf;
 	}
 }
