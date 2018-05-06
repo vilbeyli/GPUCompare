@@ -41,11 +41,17 @@ namespace GPUCompare
 			HeaderAndContentPanel.Controls.Remove(SelectedUC);
 			switch (page)
 			{
-				case Pages.LIST:	SelectedUC = PageList; break;
-				case Pages.COMPARE:	SelectedUC = PageCompare; break;
+				case Pages.LIST:
+					SelectedUC = PageList;
+					break;
+				case Pages.COMPARE:
+					SelectedUC = PageCompare;
+					break;
 			}
+			SelectedUC.Dock = DockStyle.Right; ; // DockStyle.Bottom;
+			SelectedUC.AutoSize = true;
 			HeaderAndContentPanel.Controls.Add(SelectedUC);
-			HeaderAndContentPanel.ResumeLayout();
+			HeaderAndContentPanel.ResumeLayout(true);
 		}
 
 		private void MainForm_Load(object sender, EventArgs e)

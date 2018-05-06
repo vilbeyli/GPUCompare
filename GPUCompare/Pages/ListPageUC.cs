@@ -19,7 +19,7 @@ namespace GPUCompare.Pages
 
 			// TODO: start web query, get a result, parse and add control
 			AddDelayedEntry();
-			AddDelayedEntry(215);
+			//AddDelayedEntry(215);
 		}
 
 
@@ -28,7 +28,7 @@ namespace GPUCompare.Pages
 		{
 			GPUEntryTableLayout.SuspendLayout();
 			GPUEntryTableLayout.Controls.Add(new Pages.GPUEntryView(entryView.Entry));
-			GPUEntryTableLayout.ResumeLayout();
+			GPUEntryTableLayout.ResumeLayout(true);
 		}
 		async void AddDelayedEntry(int delay = 0)
 		{
@@ -36,12 +36,17 @@ namespace GPUCompare.Pages
 			GPUEntryView GPUEntryViewTestNVD = new GPUEntryView(GPUEntryBuilder.GenerateTestEntry(GPUBrand.NVIDIA));
 			GPUEntryView GPUEntryViewTestITL = new GPUEntryView(GPUEntryBuilder.GenerateTestEntry(GPUBrand.INTEL));
 
-			await Task.Delay(delay);
+			//await Task.Delay(delay);
 			AddEntryView(GPUEntryViewTestITL);
 			await Task.Delay(200);
 			AddEntryView(GPUEntryViewTestNVD);
+			await Task.Delay(400);
+			AddEntryView(GPUEntryViewTestAMD);
 			await Task.Delay(200);
 			AddEntryView(GPUEntryViewTestAMD);
+
+			await Task.Delay(100);
+			AddEntryView(GPUEntryViewTestNVD);
 			return;
 		}
 	}

@@ -28,18 +28,32 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.label_placeholder = new System.Windows.Forms.Label();
 			this.SuspendLayout();
+			// 
+			// label_placeholder
+			// 
+			this.label_placeholder.AutoSize = true;
+			this.label_placeholder.Location = new System.Drawing.Point(55, 53);
+			this.label_placeholder.Name = "label_placeholder";
+			this.label_placeholder.Size = new System.Drawing.Size(63, 13);
+			this.label_placeholder.TabIndex = 0;
+			this.label_placeholder.Text = "Placeholder";
 			// 
 			// CompareUC
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
+			this.Controls.Add(this.label_placeholder);
 			this.Name = "CompareUC";
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
 		#endregion
+
+		private System.Windows.Forms.Label label_placeholder;
 	}
 }

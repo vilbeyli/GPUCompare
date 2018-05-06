@@ -42,6 +42,8 @@
 			// 
 			// PageLayoutPanel
 			// 
+			this.PageLayoutPanel.AutoSize = true;
+			this.PageLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.PageLayoutPanel.ColumnCount = 2;
 			this.PageLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.0545F));
 			this.PageLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.9455F));
@@ -51,7 +53,7 @@
 			this.PageLayoutPanel.Name = "PageLayoutPanel";
 			this.PageLayoutPanel.RowCount = 1;
 			this.PageLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.PageLayoutPanel.Size = new System.Drawing.Size(1578, 700);
+			this.PageLayoutPanel.Size = new System.Drawing.Size(1578, 53);
 			this.PageLayoutPanel.TabIndex = 1;
 			// 
 			// Group_Manufacturer
@@ -113,13 +115,15 @@
 			// GPUEntryTableLayout
 			// 
 			this.GPUEntryTableLayout.AutoScroll = true;
+			this.GPUEntryTableLayout.AutoSize = true;
 			this.GPUEntryTableLayout.ColumnCount = 1;
 			this.GPUEntryTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.GPUEntryTableLayout.Location = new System.Drawing.Point(209, 3);
+			this.GPUEntryTableLayout.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.GPUEntryTableLayout.Location = new System.Drawing.Point(209, 50);
 			this.GPUEntryTableLayout.Name = "GPUEntryTableLayout";
 			this.GPUEntryTableLayout.RowCount = 1;
 			this.GPUEntryTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.GPUEntryTableLayout.Size = new System.Drawing.Size(1366, 694);
+			this.GPUEntryTableLayout.Size = new System.Drawing.Size(1366, 0);
 			this.GPUEntryTableLayout.TabIndex = 1;
 			// 
 			// ListPageUC
@@ -130,10 +134,12 @@
 			this.Name = "ListPageUC";
 			this.Size = new System.Drawing.Size(1584, 706);
 			this.PageLayoutPanel.ResumeLayout(false);
+			this.PageLayoutPanel.PerformLayout();
 			this.Group_Manufacturer.ResumeLayout(false);
 			this.TableLayout_ManufacturerControls.ResumeLayout(false);
 			this.TableLayout_ManufacturerControls.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
