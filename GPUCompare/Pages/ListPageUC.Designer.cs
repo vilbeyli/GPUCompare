@@ -42,14 +42,15 @@
 			// 
 			// PageLayoutPanel
 			// 
+			this.PageLayoutPanel.AutoScroll = true;
 			this.PageLayoutPanel.AutoSize = true;
-			this.PageLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.PageLayoutPanel.ColumnCount = 2;
 			this.PageLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.0545F));
 			this.PageLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.9455F));
 			this.PageLayoutPanel.Controls.Add(this.Group_Manufacturer, 0, 0);
 			this.PageLayoutPanel.Controls.Add(this.GPUEntryTableLayout, 1, 0);
-			this.PageLayoutPanel.Location = new System.Drawing.Point(3, 3);
+			this.PageLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.PageLayoutPanel.Location = new System.Drawing.Point(0, 0);
 			this.PageLayoutPanel.Name = "PageLayoutPanel";
 			this.PageLayoutPanel.RowCount = 1;
 			this.PageLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -116,23 +117,27 @@
 			// 
 			this.GPUEntryTableLayout.AutoScroll = true;
 			this.GPUEntryTableLayout.AutoSize = true;
+			this.GPUEntryTableLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.GPUEntryTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
 			this.GPUEntryTableLayout.ColumnCount = 1;
 			this.GPUEntryTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.GPUEntryTableLayout.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.GPUEntryTableLayout.Location = new System.Drawing.Point(209, 50);
+			this.GPUEntryTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.GPUEntryTableLayout.Location = new System.Drawing.Point(209, 3);
 			this.GPUEntryTableLayout.Name = "GPUEntryTableLayout";
 			this.GPUEntryTableLayout.RowCount = 1;
 			this.GPUEntryTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.GPUEntryTableLayout.Size = new System.Drawing.Size(1366, 0);
+			this.GPUEntryTableLayout.Size = new System.Drawing.Size(1366, 47);
 			this.GPUEntryTableLayout.TabIndex = 1;
 			// 
 			// ListPageUC
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoSize = true;
+			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.Controls.Add(this.PageLayoutPanel);
 			this.Name = "ListPageUC";
-			this.Size = new System.Drawing.Size(1584, 706);
+			this.Size = new System.Drawing.Size(1578, 53);
 			this.PageLayoutPanel.ResumeLayout(false);
 			this.PageLayoutPanel.PerformLayout();
 			this.Group_Manufacturer.ResumeLayout(false);

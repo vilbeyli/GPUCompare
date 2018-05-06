@@ -48,7 +48,7 @@ namespace GPUCompare
 					SelectedUC = PageCompare;
 					break;
 			}
-			SelectedUC.Dock = DockStyle.Right; ; // DockStyle.Bottom;
+			SelectedUC.Dock = DockStyle.Fill; ; // DockStyle.Bottom;
 			SelectedUC.AutoSize = true;
 			HeaderAndContentPanel.Controls.Add(SelectedUC);
 			HeaderAndContentPanel.ResumeLayout(true);

@@ -45,10 +45,43 @@ namespace GPUCompare.Pages
 			this.ResumeLayout(true);
 
 			this.SuspendLayout();
-			//SetLabelText(LabelBrand, Entry.Manufacturer.Brand);
 			SetLabelText(LabelModel, Entry.Manufacturer.ModelName);
 			SetLabelText(LabelLaunchDate, Entry.Manufacturer.LaunchDate.ToShortDateString());
 			SetLabelText(LabelReleasePrice, "$" + Entry.Manufacturer.ReleasePrice.ToString());
+
+			List<string> UITexts = null;
+
+			UITexts = Entry.Architecture == null ? ArchitectureInfo.GetDefaultUIText() : Entry.Architecture.GetUIText();
+			SetLabelText(LabelGen, UITexts[0]);
+			SetLabelText(LabelLithography, UITexts[1]);
+			SetLabelText(LabelTransistorCountAndDieSize, UITexts[2]);
+			SetLabelText(LabelBus, UITexts[3]);
+
+			UITexts.Clear();
+
+			UITexts = Entry.Core == null ? CoreInfo.GetDefaultUIText() : Entry.Core.GetUIText();
+			SetLabelText(Label_ShaderCores, UITexts[0]);
+			SetLabelText(Label_TMU, UITexts[1]);
+			SetLabelText(Label_ROP, UITexts[2]);
+			SetLabelText(Label_Clock, UITexts[3]);
+
+			UITexts.Clear();
+
+			UITexts = Entry.Memory == null ? MemoryInfo.GetDefaultUIText() : Entry.Memory.GetUIText();
+			SetLabelText(Label_VRAM, UITexts[0]);
+			SetLabelText(Label_BusTypeWidth, UITexts[1]);
+			SetLabelText(Label_MemBandwidth, UITexts[2]);
+			SetLabelText(Label_MemClock, UITexts[3]);
+
+			UITexts.Clear();
+
+			UITexts = Entry.Perf == null ? Performance.GetDefaultUIText() : Entry.Perf.GetUIText();
+			SetLabelText(Label_Perf_Proc, UITexts[0]);
+			SetLabelText(Label_Perf_Proc_Turbo, UITexts[1]);
+			SetLabelText(Label_Perf_Fill, UITexts[2]);
+			SetLabelText(Label_Perf_Fill_Turbo, UITexts[3]);
+			SetLabelText(Label_TDPVal, UITexts[4]);
+
 			this.ResumeLayout(true);
 
 			ControlHelper.ResumeDrawing(this);
